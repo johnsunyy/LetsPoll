@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetsPoll - Real-time Polls</title>
+    <meta property="og:title" content="LetsPoll - Create & Share Real-time Polls">
+    <meta property="og:description" content="Vote on polls and see results update instantly. No login required.">
+    <meta property="og:site_name" content="LetsPoll">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar"
+        style="padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: white; border-bottom: 1px solid var(--border);">
+        <div class="nav-brand">
+            <h1 class="brand-logo" style="margin: 0; font-size: 1.5rem; text-align: left;">LetsPoll</h1>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 2rem;">
+            <div class="nav-links" style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="/" class="nav-link"
+                    style="text-decoration: none; color: var(--text-secondary); font-weight: 500;">Home</a>
+                <a href="#" class="nav-link"
+                    style="text-decoration: none; color: var(--text-secondary); font-weight: 500;">About</a>
+            </div>
+            <button onclick="window.location.search='?page=create'; return false;" class="btn"
+                style="padding: 0.5rem 1.25rem; font-size: 0.9rem;">
+                Create a Poll
+            </button>
+        </div>
+    </nav>
+
+    <div id="app">
+        <!-- Content inject by src/app.js -->
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs (Modular) -->
+    <!-- We use ES Modules in app.js, which imports from valid URLs. 
+         However, for simple CDN usage without a bundler, import maps are great. -->
+    <script type="importmap">
+    {
+        "imports": {
+            "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+            "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+            "firebase/auth": "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"
+        }
+    }
+    </script>
+
+    <!-- App Entry -->
+    <script type="module" src="src/app.js"></script>
+</body>
+
+</html>
