@@ -22,6 +22,11 @@ To ensure fair voting while maintaining ease of use, LetsPoll implements several
     -   The application uses Firebase Authentication (Anonymous) to assign a unique User ID (UID) to every visitor.
     -   Votes are recorded in a sub-collection `polls/{pollId}/votes/{uid}`.
     -   A Firestore Rules ensuring that even if a user clears their LocalStorage, the server checks if their UID has already voted on this poll before accepting a new vote.
+3.  **Bias Reduction Through Result Visibility Control**:
+    -   The application hides vote counts until a user casts their vote.
+    -   **What it prevents**: Bandwagon effect (herd mentality), social influence bias, and strategic voting based on current results.
+    -   **Why this matters**: Showing results before voting can influence user decisions and distort authentic opinions. By revealing results only after voting, the system          encourages independent choices and improves fairness of outcomes.
+
 
 ### Edge Case Handling
 -   **Race Conditions**:
@@ -98,3 +103,4 @@ To run this project locally:
     python3 -m http.server
     # Open http://localhost:8000 in your browser
     ```
+
